@@ -11,7 +11,6 @@ import {
 import { NavigationContainer } from "@react-navigation/native";
 import { NativeModules } from "react-native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import Register from "./pages/Register";
 import Notes from "./pages/Notes";
 const { StatusBarManager } = NativeModules;
 const STATUSBAR_HEIGHT = Platform.OS === "ios" ? 20 : StatusBarManager.HEIGHT;
@@ -24,7 +23,6 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen name="Home" component={Loader} />
-        <Stack.Screen name="ingreso" component={Register} />
         <Stack.Screen name="notas" component={Notes} />
       </Stack.Navigator>
     </NavigationContainer>
@@ -33,7 +31,7 @@ export default function App() {
 
 export const Loader = ({ navigation }) => {
   const handleClick = () => {
-    navigation.navigate("ingreso");
+    navigation.navigate("notas");
   };
 
   return (
@@ -46,7 +44,7 @@ export const Loader = ({ navigation }) => {
         style={styles.btn}
         onPress={handleClick}
       >
-        <Text style={styles.textBtn}>Iniciar sesion</Text>
+        <Text style={styles.textBtn}>Iniciar</Text>
       </TouchableHighlight>
     </View>
   );
